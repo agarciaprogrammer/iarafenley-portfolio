@@ -1,0 +1,69 @@
+/* Contenedor general de la sección */
+.content-section {
+  padding: 8rem 0;
+}
+
+/* Título de la sección */
+.content-section h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color, #e7be70);
+}
+
+/* Grid de imágenes */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Tarjeta de obra */
+.obra-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.obra-card:hover {
+  transform: scale(1.02);
+}
+
+.obra-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+/* Información extra que aparece al hacer click o hover */
+.obra-info {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.obra-info p {
+  margin: 0.2rem 0;
+}
+
+/* Estilo para obras grandes (opcional futuro) */
+.obra-card.expanded {
+  grid-column: span 2;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
