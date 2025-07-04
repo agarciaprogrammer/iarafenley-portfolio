@@ -1,0 +1,46 @@
+.admin-section h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #e7be70;
+}
+
+.editable-text textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 1rem;
+}
+
+.editable-display {
+  background-color: #111;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.editable-display:hover {
+  background-color: #222;
+}
+
+.admin-section button {
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #e7be70;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.admin-section button:hover {
+  background-color: #fad58f;
+}

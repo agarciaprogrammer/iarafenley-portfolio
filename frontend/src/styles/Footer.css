@@ -1,7 +1,13 @@
-.footer {
+.footer-link {
   text-align: center;
   padding: 20px 0;
   background-color: #0a0a0a;
   color: #e7be70;
   font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: inherit;
 }

@@ -6,12 +6,12 @@ import Home from './pages/Home'
 import Biografia from './pages/Biografia'
 import Exposiciones from './pages/Exposiciones'
 import Contacto from './pages/Contacto'
-
 import Obras from './pages/Obras'
 import Dibujo from './pages/Dibujo'
 import Grabado from './pages/Grabado'
 import Pintura from './pages/Pintura'
 import Escultura from './pages/Escultura'
+import Admin from './pages/Admin'
 
 import './styles/global.css'
 import './styles/Navbar.css'
@@ -36,6 +36,7 @@ const App = () => {
         <Route path="/obras/grabado" element={<Grabado />} />
         <Route path="/obras/pintura" element={<Pintura />} />
         <Route path="/obras/escultura" element={<Escultura />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </Router>
