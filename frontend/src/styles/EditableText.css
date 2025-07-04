@@ -1,0 +1,49 @@
+/* Contenedor general del componente editable */
+.editable-text {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Modo de visualización (no editable) */
+.editable-display {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #e7be70;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: rem;
+}
+
+/* Área de texto cuando está en modo edición */
+.editable-text textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fdfdfd;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.5rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.editable-text textarea:focus {
+  border-color: #e7be70;
+}
+
+/* Adaptaciones según sección */
+.biografia .editable-text,
+.contacto .editable-text,
+.exposiciones .editable-text {
+  margin: 1rem 0;
+}
+
+/* Estilo para párrafos renderizados */
+.editable-display p {
+  margin: 0.5rem 0;
+}

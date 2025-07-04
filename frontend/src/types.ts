@@ -6,3 +6,8 @@ export interface Obra {
   tecnica?: string
   anio?: number
 }
+
+export interface Exposicion {
+  id: string
+  text: string
+}

@@ -1,14 +1,22 @@
 // src/pages/Exposiciones.tsx
 import EditableText from '../components/EditableText'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import rawData from '../data/exposiciones.json'
+import type { Exposicion } from '../types'
 
 const Exposiciones = () => {
-  const [expos, setExpos] = useState(`2024 - Muestra Colectiva - Galería XYZ\n2023 - Individual - Centro Cultural ABC\n2022 - Muestra Anual UNA - Buenos Aires`)
+  const [text, setText] = useState('')
+
+  useEffect(() => {
+    const expos = rawData as Exposicion[]
+    const exposText = expos.map(exp => exp.text).join('\n')
+    setText(exposText)
+  }, [])
 
   return (
     <section className="content-section container">
       <h1>Exposiciones</h1>
-      <EditableText text={expos} onSave={setExpos} className="exposiciones" />
+      <EditableText text={text} onSave={setText} className="exposiciones" />
     </section>
   )
 }

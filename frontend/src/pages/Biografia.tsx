@@ -1,9 +1,10 @@
 // src/pages/Biografia.tsx
 import EditableText from '../components/EditableText'
 import { useState } from 'react'
+import data from '../data/biografia.json'
 
 const Biografia = () => {
-  const [bio, setBio] = useState(`Iara Fenley nació en Buenos Aires en 1997. Es artista visual y docente.\nLicenciada en Artes Visuales con orientación en pintura, UNA.\nTrabaja con diferentes disciplinas como el dibujo, la pintura, el grabado y la escultura.`)
+  const [bio, setBio] = useState(data.bio)
 
   return (
     <section className="content-section container">
