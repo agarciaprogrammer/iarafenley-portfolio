@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getObras } from '../services/obrasService'
 import ImageGrid from '../components/ImageGrid'
 import type { Obra } from '../types'
-import rawData from '../data/obras.json'
 
 const Obras = () => {
   const [obras, setObras] = useState<Obra[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const data = rawData as Obra[]
-    setObras(data as Obra[])
+    getObras()
+      .then(setObras)
+      .catch(() => setError('No se pudieron cargar las obras'))
+      .finally(() => setLoading(false))
   }, [])
+
+  if (loading) return <p>Cargando obras...</p>
+  if (error) return <p>{error}</p>
 
   return (
     <section className="content-section container">

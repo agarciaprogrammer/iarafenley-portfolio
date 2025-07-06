@@ -1,15 +1,30 @@
-// src/pages/Contacto.tsx
-import EditableText from '../components/EditableText'
-import { useState } from 'react'
-import data from '../data/biografia.json'
+import { useEffect, useState } from 'react'
+import { getBiografia } from '../services/biografiaService'
 
 const Contacto = () => {
-  const [contact, setContact] = useState(data.contact)
+  const [contact, setContact] = useState('')
+  const [loading, setLoading] = useState(true)
 
-  return ( 
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        const data = await getBiografia()
+        setContact(data.contact)
+      } catch (error) {
+        console.error('Error cargando contacto:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchContact()
+  }, [])
+
+  if (loading) return <p>Cargando contacto...</p>
+
+  return (
     <section className="content-section container">
       <h1>Contacto</h1>
-      <EditableText text={contact} onSave={setContact} className="contacto" />
+      <p className='contacto'>{contact}</p>
     </section>
   )
 }

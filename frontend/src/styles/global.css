@@ -37,3 +37,23 @@ a {
   color: inherit;
   transition: color 0.3s ease-in-out;
 }
+
+.button {
+  margin: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #e7be70;
+  color: #0a0a0a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #a48140;
+}

@@ -30,10 +30,11 @@ const Navbar = () => {
           </li>
           <li className="navbar-item">
             <Link to="/biografia">BIOGRAFIA</Link>
-            <ul className="dropdown-menu">
-              <li><Link to="/exposiciones">EXPOSICIONES</Link></li>
-            </ul>
           </li>
+          <li className="navbar-item">
+            <Link to="/exposiciones">EXPOSICIONES</Link>
+          </li>
+
           <li className="navbar-item">
             <Link to="/contacto">CONTACTO</Link>
           </li>
