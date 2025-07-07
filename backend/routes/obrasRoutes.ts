@@ -1,17 +1,15 @@
-// /routes/obrasRoutes.ts
-import { Router } from 'express'
-import {
-  getObras,
-  addObra,
-  updateObra,
-  deleteObra,
-} from '../controllers/obrasController'
+// backend/routes/obrasRoutes.ts
+import express from 'express';
+import { getObras, updateObra, deleteObra, uploadObra } from '../controllers/obrasController';
+import upload from '../uploads/multerConfig';
 
-const router = Router()
+const router = express.Router();
 
-router.get('/', getObras)
-router.post('/', addObra)
-router.put('/:id', updateObra)
-router.delete('/:id', deleteObra)
+router.get('/', getObras);
+router.put('/:id', updateObra);
+router.delete('/:id', deleteObra);
 
-export default router
+// Use the new uploadObra function
+router.post('/upload', upload.single('image'), uploadObra);
+
+export default router;

@@ -3,7 +3,7 @@
     "id": "dibujo1",
     "src": "/dibujo/dibujo1.webp",
     "categoria": "dibujo",
-    "titulo": "Giorno",
+    "titulo": "Pascalitoooaoaooaoa",
     "tecnica": "Lápiz de color sobre papel",
     "anio": 2023
   },
@@ -187,7 +187,7 @@
     "id": "pintura1",
     "src": "/pintura/pintura1.webp",
     "categoria": "pintura",
-    "titulo": "Aurora Boreal",
+    "titulo": "Auroraaaa",
     "tecnica": "Acrílico sobre lienzo",
     "anio": 2023
   },
@@ -198,5 +198,13 @@
     "titulo": "Aurora Boreal 2",
     "tecnica": "Acrílico sobre lienzo",
     "anio": 2023
+  },
+  {
+    "id": "1751926842662",
+    "src": "/escultura/1751926842294-761248220.webp",
+    "categoria": "escultura",
+    "titulo": "aaasdas",
+    "tecnica": "asdadsasd",
+    "anio": "2025"
   }
 ]

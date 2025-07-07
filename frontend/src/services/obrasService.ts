@@ -5,12 +5,13 @@ export const getObras = async (): Promise<Obra[]> => {
     return await apiFetch('/api/obras')
 }
 
-export const addObra = async (obra: Omit<Obra, 'id'>): Promise<Obra> => {
-    return await apiFetch('/api/obras', {
-        method: 'POST',
-        body: JSON.stringify(obra),
-    })
-}
+export const uploadObra = async (formData: FormData): Promise<Obra> => {
+  return await apiFetch('/api/obras/upload', {
+    method: 'POST',
+    body: formData,
+  });
+};
+
 
 export const updateObra = async (id: string, updates: Partial<Obra>): Promise<Obra> => {
     return await apiFetch(`/api/obras/${id}`, {

@@ -12,12 +12,11 @@
 .hero-content {
   color: #e7be70;
   max-width: 600px;
-  margin-left: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.10em;  margin-left: 5rem;
   text-transform: uppercase;
   font-size: 1.2rem;
   z-index: 1;
