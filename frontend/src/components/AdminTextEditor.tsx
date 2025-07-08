@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react'
 import type { Exposicion } from '../types'
 import { getBiografia, updateBiografia } from '../services/biografiaService'
-import { getExposiciones, updateExposicion} from '../services/expoServices'
+import { getExposiciones, updateExposicion, crearExpo} from '../services/expoServices'
+import '../styles/Admin.css';
 
 const AdminTextEditor = () => {
   const [bio, setBio] = useState('')
@@ -61,6 +62,16 @@ const AdminTextEditor = () => {
     }
   }
 
+  const handleCrearExpo = async () => {
+    try {
+      const nueva = await crearExpo(''); // Crear exposición vacía
+      setExposiciones((prev) => [...prev, nueva]);
+    } catch (err) {
+      console.error('Error al crear exposición:', err);
+    }
+  };
+
+
   return (
     <div className="admin-section">
       <h2>Editar Textos</h2>
@@ -71,6 +82,7 @@ const AdminTextEditor = () => {
         <>
           <h3>Biografía</h3>
           <textarea
+            className="editable-text"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={8}
@@ -79,6 +91,7 @@ const AdminTextEditor = () => {
 
           <h3>Contacto</h3>
           <textarea
+            className="editable-text"
             value={contact}
             onChange={(e) => setContact(e.target.value)}
             rows={4}
@@ -94,13 +107,19 @@ const AdminTextEditor = () => {
           <hr />
 
           <h3>Exposiciones</h3>
+
+          <button onClick={handleCrearExpo} style={{ marginBottom: 12 }}>
+            ➕ Nueva Exposición
+          </button>
+
+
           {exposiciones.map(({ id, text }) => (
             <div key={id} style={{ marginBottom: 15 }}>
               <textarea
+                className="editable-text"
                 value={text}
                 onChange={(e) => handleExpoChange(id, e.target.value)}
                 rows={3}
-                style={{ width: '100%' }}
                 placeholder="Texto de exposición"
               />
               <button
@@ -116,7 +135,7 @@ const AdminTextEditor = () => {
         </>
       )}
     </div>
-  )
+  );
 }
 
 

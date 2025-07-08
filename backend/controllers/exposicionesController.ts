@@ -36,3 +36,28 @@ export const updateExposicion = async (req: Request, res: Response, next: NextFu
     next(err)
   }
 }
+
+export const crearExpo = async (req: Request, res: Response) => {
+  try {
+    const { text } = req.body;
+
+    if (typeof text !== 'string') {
+      return res.status(400).json({ error: 'Texto de exposición requerido' });
+    }
+
+    const data = await getJson(FILE);
+
+    const nuevaExpo = {
+      id: Date.now().toString(),
+      text: text.trim(),
+    };
+
+    data.push(nuevaExpo);
+    await saveJson(FILE, data);
+
+    res.status(201).json(nuevaExpo);
+  } catch (error) {
+    console.error('Error al crear exposición:', error);
+    res.status(500).json({ error: 'Error al crear la exposición' });
+  }
+}

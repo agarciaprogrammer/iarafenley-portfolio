@@ -1,0 +1,112 @@
+.btnAgregarObra {
+  background-color: #835500;
+  color: #0a0a0a;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.btnAgregarObra:hover {
+  background-color: #a48140;
+}
+
+.admin-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #0a0a0a;
+  border: 1px solid #2f2f2f;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-family: 'Poppins', sans-serif;
+  color: #e7be70;
+}
+
+.admin-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.admin-section h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+textarea.editable-text,
+.admin-section textarea,
+.admin-section input,
+.admin-section select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+textarea.editable-text {
+  min-height: 60px;
+}
+
+
+
+.admin-section button {
+  padding: 10px 16px;
+  background-color: #e7be70;
+  margin-bottom: 1rem;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.admin-section button:hover {
+  background-color: #e3ac46;
+}
+
+.admin-section button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.success-msg {
+  color: green;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+hr {
+  margin: 32px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.add-obra-form {
+  background-color: #0a0a0a;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.obra-form {
+  background-color: #0a0a0a;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.obra-form input,
+.obra-form select {
+  margin-bottom: 10px;
+}
+
+

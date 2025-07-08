@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { getExposiciones, updateExposicion} from '../controllers/exposicionesController'
+import { getExposiciones, updateExposicion, crearExpo } from '../controllers/exposicionesController';
 
-const router = Router()
+const router = Router();
 
-router.get('/', getExposiciones)
-router.put("/:id", updateExposicion)
+router.get('/', getExposiciones);
+router.put("/:id", updateExposicion);
+router.post('/', crearExpo); // 👈 esta línea nueva
 
-export default router
+export default router;

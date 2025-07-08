@@ -7,7 +7,7 @@ import {
   updateObra,
   deleteObra,
 } from '../services/obrasService';
-import '../styles/AdminObraEditor.css';
+import '../styles/Admin.css';
 
 const AdminObraEditor = () => {
   const [obras, setObras] = useState<Obra[]>([]);
@@ -125,7 +125,7 @@ const AdminObraEditor = () => {
   return (
     <div className="admin-section">
       <h2>Editor de Obras</h2>
-      <button onClick={() => setShowAddForm(true)}>Agregar Obra</button>
+      <button className='btnAgregarObra' onClick={() => setShowAddForm(true)}>Agregar Obra</button>
 
       {showAddForm && (
         <div className="add-obra-form">

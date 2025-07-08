@@ -27,7 +27,7 @@ export const updateObra = async (req: Request, res: Response) => {
     await saveJson(FILE, obras);
     res.json(obras[idx]);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Error al actualizar una obra" });
   }
 };
 
@@ -40,7 +40,7 @@ export const deleteObra = async (req: Request, res: Response) => {
     await saveJson(FILE, nuevasObras);
     res.status(204).send();
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Error al borrar una obra" });
   }
 };
 
@@ -87,6 +87,7 @@ export const uploadObra = async (req: Request, res: Response) => {
     res.status(201).json(newObra);
   } catch (error) {
     console.error('Error al agregar obra:', error);
-    res.status(500).json({ error: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    res.status(500).json({ error: errorMessage });
   }
 };

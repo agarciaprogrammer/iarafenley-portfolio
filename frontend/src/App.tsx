@@ -21,6 +21,7 @@ import './styles/Biografia.css'
 import './styles/Exposiciones.css'
 import './styles/Contacto.css'
 import './styles/Obras.css'
+import './styles/Admin.css'
 
 const App = () => {
   return (

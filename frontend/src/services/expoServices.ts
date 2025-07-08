@@ -11,3 +11,10 @@ export const updateExposicion = async ({ id, text }: Exposicion): Promise<Exposi
         body: JSON.stringify({ text }),
     })    
 }
+
+export const crearExpo = async (text: string): Promise<Exposicion> => {
+  return await apiFetch('/api/expo', {
+    method: 'POST',
+    body: JSON.stringify({ text }),
+  });
+};
