@@ -11,7 +11,7 @@ export const getBiografia = async (): Promise<BiografiaData> => {
 }
 
 export const updateBiografia = async (data: BiografiaData): Promise<BiografiaData> => {
-  return await apiFetch('/api/biografia', {
+  return await apiFetch(`/api/biografia/`, {
     method: 'PUT',
     body: JSON.stringify(data),
   })

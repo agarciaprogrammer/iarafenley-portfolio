@@ -8,6 +8,6 @@ import {
 const router = Router()
 
 router.get('/', getBiografia)
-router.put('/:id', updateBiografia)
+router.put('/', updateBiografia)
 
 export default router

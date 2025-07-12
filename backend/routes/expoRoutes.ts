@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/', getExposiciones);
 router.put("/:id", updateExposicion);
-router.post('/', crearExpo); // 👈 esta línea nueva
+router.post('/', crearExpo);
 
 export default router;
