@@ -168,37 +168,48 @@ const AdminObraEditor = () => {
       ) : (
         obras.map((obra, index) => (
           <div key={obra.id} className="obra-form">
-            <input
-              value={obra.titulo || ''}
-              onChange={(e) => handleChange(index, 'titulo', e.target.value)}
-              placeholder="Título"
-            />
-            <input
-              value={obra.tecnica || ''}
-              onChange={(e) => handleChange(index, 'tecnica', e.target.value)}
-              placeholder="Técnica"
-            />
-            <input
-              value={obra.anio?.toString() || ''}
-              onChange={(e) => handleChange(index, 'anio', e.target.value)}
-              placeholder="Año"
-            />
-            <select
-              value={obra.categoria}
-              onChange={(e) => handleChange(index, 'categoria', e.target.value)}
-            >
-              <option value="dibujo">Dibujo</option>
-              <option value="grabado">Grabado</option>
-              <option value="pintura">Pintura</option>
-              <option value="escultura">Escultura</option>
-            </select>
-            <input
-              value={obra.src}
-              onChange={(e) => handleChange(index, 'src', e.target.value)}
-              placeholder="Ruta imagen (ej: /imgdibujo/dibujo1.webp)"
-            />
-            <button onClick={() => handleSave(index)}>Guardar</button>
-            <button onClick={() => handleDelete(obra.id)}>Eliminar</button>
+            <div className="obra-form-content">
+              <div className="obra-fields">
+                <input
+                  value={obra.titulo || ''}
+                  onChange={(e) => handleChange(index, 'titulo', e.target.value)}
+                  placeholder="Título"
+                />
+                <input
+                  value={obra.tecnica || ''}
+                  onChange={(e) => handleChange(index, 'tecnica', e.target.value)}
+                  placeholder="Técnica"
+                />
+                <input
+                  value={obra.anio?.toString() || ''}
+                  onChange={(e) => handleChange(index, 'anio', e.target.value)}
+                  placeholder="Año"
+                />
+                <select
+                  value={obra.categoria}
+                  onChange={(e) => handleChange(index, 'categoria', e.target.value)}
+                >
+                  <option value="dibujo">Dibujo</option>
+                  <option value="grabado">Grabado</option>
+                  <option value="pintura">Pintura</option>
+                  <option value="escultura">Escultura</option>
+                </select>
+                <input
+                  value={obra.src}
+                  onChange={(e) => handleChange(index, 'src', e.target.value)}
+                  placeholder="Ruta imagen (ej: /dibujo/123.webp)"
+                />
+                <button onClick={() => handleSave(index)}>Guardar</button>
+                <button onClick={() => handleDelete(obra.id)}>Eliminar</button>
+              </div>
+              <div className="obra-image-preview">
+                {obra.src ? (
+                  <img src={obra.src} alt={`Preview ${obra.titulo}`} />
+                ) : (
+                  <div className="placeholder-image">Sin imagen</div>
+                )}
+              </div>
+            </div>
           </div>
         ))
       )}

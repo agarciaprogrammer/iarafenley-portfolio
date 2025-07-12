@@ -57,3 +57,17 @@ a {
 .button:hover {
   background-color: #a48140;
 }
+
+html, body, #root {
+  height: 100%;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}

@@ -53,8 +53,6 @@ textarea.editable-text {
   min-height: 60px;
 }
 
-
-
 .admin-section button {
   padding: 10px 16px;
   background-color: #e7be70;
@@ -104,9 +102,43 @@ hr {
   border: 1px solid #e0e0e0;
 }
 
-.obra-form input,
-.obra-form select {
-  margin-bottom: 10px;
+.obra-form-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
 }
+
+.obra-fields {
+  flex: 1;
+}
+
+.obra-image-preview {
+  width: 250px;
+  min-width: 250px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #888;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+.obra-image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.placeholder-image {
+  color: #888;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 8px;
+}
+
 
 

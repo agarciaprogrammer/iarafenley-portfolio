@@ -26,20 +26,24 @@ import './styles/Admin.css'
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/biografia" element={<Biografia />} />
-        <Route path="/exposiciones" element={<Exposiciones />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/obras" element={<Obras />} />
-        <Route path="/obras/dibujo" element={<Dibujo />} />
-        <Route path="/obras/grabado" element={<Grabado />} />
-        <Route path="/obras/pintura" element={<Pintura />} />
-        <Route path="/obras/escultura" element={<Escultura />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-      <Footer />
+      <div className="layout">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/biografia" element={<Biografia />} />
+            <Route path="/exposiciones" element={<Exposiciones />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/obras" element={<Obras />} />
+            <Route path="/obras/dibujo" element={<Dibujo />} />
+            <Route path="/obras/grabado" element={<Grabado />} />
+            <Route path="/obras/pintura" element={<Pintura />} />
+            <Route path="/obras/escultura" element={<Escultura />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   )
 }
