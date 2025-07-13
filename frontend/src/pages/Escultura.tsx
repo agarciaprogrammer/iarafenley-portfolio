@@ -3,6 +3,7 @@ import { getObras } from '../services/obrasService'
 import { useEffect, useState } from 'react'
 import ImageGrid from '../components/ImageGrid'
 import type { Obra } from '../types'
+import LoadingScreen from '../components/LoadingScreen'
 
 const Escultura = () => {
   const [obras, setObras] = useState<Obra[]>([])
@@ -19,7 +20,7 @@ const Escultura = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <p>Cargando obras de dibujo...</p>
+  if (loading) return <LoadingScreen message='Cargando esculturas...'/>
   if (error) return <p>{error}</p>
 
   return (

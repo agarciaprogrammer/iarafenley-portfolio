@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getExposiciones } from "../services/expoServices"
 import type { Exposicion } from "../types"
+import LoadingScreen from "../components/LoadingScreen"
 
 const Exposiciones = () => {
   const [expo, setExpo] = useState<Exposicion[]>([])
@@ -20,7 +21,7 @@ const Exposiciones = () => {
     fetchExpo()
   }, [])
 
-  if (loading) return <p>Cargando exposiciones...</p>
+  if (loading) return <LoadingScreen message='Cargando exposiciones...'/>
 
   return (
     <section className='content-section container'>

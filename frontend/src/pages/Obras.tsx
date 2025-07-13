@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { getObras } from '../services/obrasService'
 import ImageGrid from '../components/ImageGrid'
 import type { Obra } from '../types'
+import LoadingScreen from '../components/LoadingScreen'
 
 const Obras = () => {
   const [obras, setObras] = useState<Obra[]>([])
@@ -15,7 +16,7 @@ const Obras = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <p>Cargando obras...</p>
+  if (loading) return <LoadingScreen message='Cargando obras...'/>
   if (error) return <p>{error}</p>
 
   return (

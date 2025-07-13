@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getBiografia } from '../services/biografiaService'
+import LoadingScreen from '../components/LoadingScreen'
 
 const Biografia = () => {
   const [bio, setBio] = useState('')
@@ -19,7 +20,7 @@ const Biografia = () => {
     fetchBio()
   }, [])
 
-  if (loading) return <p>Cargando biografía...</p>
+  if (loading) return <LoadingScreen message='Cargando biografia...'/>
 
   return (
     <section className="content-section container">
