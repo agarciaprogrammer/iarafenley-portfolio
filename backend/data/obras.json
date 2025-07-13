@@ -1,0 +1,218 @@
+[
+  {
+    "id": "dibujo1",
+    "src": "/dibujo/dibujo1.webp",
+    "categoria": "dibujo",
+    "titulo": "aaaaiiii",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2025
+  },
+  {
+    "id": "dibujo2",
+    "src": "/dibujo/dibujo2.webp",
+    "categoria": "dibujo",
+    "titulo": "Noche",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo3",
+    "src": "/dibujo/dibujo3.webp",
+    "categoria": "dibujo",
+    "titulo": "Amanecer",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo4",
+    "src": "/dibujo/dibujo4.webp",
+    "categoria": "dibujo",
+    "titulo": "Atardecer",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo5",
+    "src": "/dibujo/dibujo5.webp",
+    "categoria": "dibujo",
+    "titulo": "Mediodía",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo6",
+    "src": "/dibujo/dibujo6.webp",
+    "categoria": "dibujo",
+    "titulo": "Medianoche",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo7",
+    "src": "/dibujo/dibujo7.webp",
+    "categoria": "dibujo",
+    "titulo": "Aurora",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo8",
+    "src": "/dibujo/dibujo8.webp",
+    "categoria": "dibujo",
+    "titulo": "Crepúsculo",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo9",
+    "src": "/dibujo/dibujo9.webp",
+    "categoria": "dibujo",
+    "titulo": "Dawn",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo10",
+    "src": "/dibujo/dibujo10.webp",
+    "categoria": "dibujo",
+    "titulo": "Dusk",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo11",
+    "src": "/dibujo/dibujo11.webp",
+    "categoria": "dibujo",
+    "titulo": "Solsticio de verano",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo12",
+    "src": "/dibujo/dibujo12.webp",
+    "categoria": "dibujo",
+    "titulo": "Solsticio de invierno",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo13",
+    "src": "/dibujo/dibujo13.webp",
+    "categoria": "dibujo",
+    "titulo": "Equinoccio de primavera",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo14",
+    "src": "/dibujo/dibujo14.webp",
+    "categoria": "dibujo",
+    "titulo": "Equinoccio de otoño",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo15",
+    "src": "/dibujo/dibujo15.webp",
+    "categoria": "dibujo",
+    "titulo": "Luz de luna",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo16",
+    "src": "/dibujo/dibujo16.webp",
+    "categoria": "dibujo",
+    "titulo": "Luz de sol",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "dibujo17",
+    "src": "/dibujo/dibujo17.webp",
+    "categoria": "dibujo",
+    "titulo": "Estrella fugaz",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado1",
+    "src": "/grabado/grabado1.webp",
+    "categoria": "grabado",
+    "titulo": "Nebulosa",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado2",
+    "src": "/grabado/grabado2.webp",
+    "categoria": "grabado",
+    "titulo": "Galaxia espiral",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado3",
+    "src": "/grabado/grabado3.webp",
+    "categoria": "grabado",
+    "titulo": "Cúmulo estelar",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado4",
+    "src": "/grabado/grabado4.webp",
+    "categoria": "grabado",
+    "titulo": "Sin titulo",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado5",
+    "src": "/grabado/grabado5.webp",
+    "categoria": "grabado",
+    "titulo": "Sin titulo",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "grabado6",
+    "src": "/grabado/grabado6.webp",
+    "categoria": "grabado",
+    "titulo": "Sin titulo",
+    "tecnica": "Lápiz de color sobre papel",
+    "anio": 2023
+  },
+  {
+    "id": "pintura1",
+    "src": "/pintura/pintura1.webp",
+    "categoria": "pintura",
+    "titulo": "Auroraaaa",
+    "tecnica": "Acrílico sobre lienzo",
+    "anio": 2023
+  },
+  {
+    "id": "pintura2",
+    "src": "/pintura/pintura2.webp",
+    "categoria": "pintura",
+    "titulo": "Aurora Boreal 2",
+    "tecnica": "Acrílico sobre lienzo",
+    "anio": 2023
+  },
+  {
+    "id": "1751926842662",
+    "src": "/escultura/1751926842294-761248220.webp",
+    "categoria": "escultura",
+    "titulo": "aaasdas",
+    "tecnica": "asdadsasd",
+    "anio": "2025"
+  },
+  {
+    "id": "1752362850509",
+    "src": "/escultura/1752362850413-619182232.webp",
+    "categoria": "escultura",
+    "titulo": "Hola pichi",
+    "tecnica": "Pichi",
+    "anio": "2025"
+  }
+]
