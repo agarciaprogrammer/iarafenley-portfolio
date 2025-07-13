@@ -236,7 +236,10 @@ const AdminObraEditor = () => {
               </div>
               <div className="obra-image-preview">
                 {obra.src ? (
-                  <img src={obra.src} alt={`Preview ${obra.titulo}`} />
+                  <img
+                    src={obra.src.startsWith('http') ? obra.src : `https://iarafenley-portfolio-backend.onrender.com${obra.src}`}
+                    alt={`Preview ${obra.titulo}`}
+                  />
                 ) : (
                   <div className="placeholder-image">Sin imagen</div>
                 )}
