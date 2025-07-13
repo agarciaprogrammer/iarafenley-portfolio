@@ -1,7 +1,7 @@
 [
   {
     "id": "dibujo1",
-    "src": "/dibujo/dibujo1.webp",
+    "src": "/uploads/dibujo/dibujo1.webp",
     "categoria": "dibujo",
     "titulo": "aaaaiiii",
     "tecnica": "Lápiz de color sobre papel",
@@ -9,7 +9,7 @@
   },
   {
     "id": "dibujo2",
-    "src": "/dibujo/dibujo2.webp",
+    "src": "/uploads/dibujo/dibujo2.webp",
     "categoria": "dibujo",
     "titulo": "Noche",
     "tecnica": "Lápiz de color sobre papel",
@@ -17,7 +17,7 @@
   },
   {
     "id": "dibujo3",
-    "src": "/dibujo/dibujo3.webp",
+    "src": "/uploads/dibujo/dibujo3.webp",
     "categoria": "dibujo",
     "titulo": "Amanecer",
     "tecnica": "Lápiz de color sobre papel",
@@ -25,7 +25,7 @@
   },
   {
     "id": "dibujo4",
-    "src": "/dibujo/dibujo4.webp",
+    "src": "/uploads/dibujo/dibujo4.webp",
     "categoria": "dibujo",
     "titulo": "Atardecer",
     "tecnica": "Lápiz de color sobre papel",
@@ -33,7 +33,7 @@
   },
   {
     "id": "dibujo5",
-    "src": "/dibujo/dibujo5.webp",
+    "src": "/uploads/dibujo/dibujo5.webp",
     "categoria": "dibujo",
     "titulo": "Mediodía",
     "tecnica": "Lápiz de color sobre papel",
@@ -41,7 +41,7 @@
   },
   {
     "id": "dibujo6",
-    "src": "/dibujo/dibujo6.webp",
+    "src": "/uploads/dibujo/dibujo6.webp",
     "categoria": "dibujo",
     "titulo": "Medianoche",
     "tecnica": "Lápiz de color sobre papel",
@@ -49,7 +49,7 @@
   },
   {
     "id": "dibujo7",
-    "src": "/dibujo/dibujo7.webp",
+    "src": "/uploads/dibujo/dibujo7.webp",
     "categoria": "dibujo",
     "titulo": "Aurora",
     "tecnica": "Lápiz de color sobre papel",
@@ -57,7 +57,7 @@
   },
   {
     "id": "dibujo8",
-    "src": "/dibujo/dibujo8.webp",
+    "src": "/uploads/dibujo/dibujo8.webp",
     "categoria": "dibujo",
     "titulo": "Crepúsculo",
     "tecnica": "Lápiz de color sobre papel",
@@ -65,7 +65,7 @@
   },
   {
     "id": "dibujo9",
-    "src": "/dibujo/dibujo9.webp",
+    "src": "/uploads/dibujo/dibujo9.webp",
     "categoria": "dibujo",
     "titulo": "Dawn",
     "tecnica": "Lápiz de color sobre papel",
@@ -73,7 +73,7 @@
   },
   {
     "id": "dibujo10",
-    "src": "/dibujo/dibujo10.webp",
+    "src": "/uploads/dibujo/dibujo10.webp",
     "categoria": "dibujo",
     "titulo": "Dusk",
     "tecnica": "Lápiz de color sobre papel",
@@ -81,7 +81,7 @@
   },
   {
     "id": "dibujo11",
-    "src": "/dibujo/dibujo11.webp",
+    "src": "/uploads/dibujo/dibujo11.webp",
     "categoria": "dibujo",
     "titulo": "Solsticio de verano",
     "tecnica": "Lápiz de color sobre papel",
@@ -89,7 +89,7 @@
   },
   {
     "id": "dibujo12",
-    "src": "/dibujo/dibujo12.webp",
+    "src": "/uploads/dibujo/dibujo12.webp",
     "categoria": "dibujo",
     "titulo": "Solsticio de invierno",
     "tecnica": "Lápiz de color sobre papel",
@@ -97,7 +97,7 @@
   },
   {
     "id": "dibujo13",
-    "src": "/dibujo/dibujo13.webp",
+    "src": "/uploads/dibujo/dibujo13.webp",
     "categoria": "dibujo",
     "titulo": "Equinoccio de primavera",
     "tecnica": "Lápiz de color sobre papel",
@@ -105,7 +105,7 @@
   },
   {
     "id": "dibujo14",
-    "src": "/dibujo/dibujo14.webp",
+    "src": "/uploads/dibujo/dibujo14.webp",
     "categoria": "dibujo",
     "titulo": "Equinoccio de otoño",
     "tecnica": "Lápiz de color sobre papel",
@@ -113,7 +113,7 @@
   },
   {
     "id": "dibujo15",
-    "src": "/dibujo/dibujo15.webp",
+    "src": "/uploads/dibujo/dibujo15.webp",
     "categoria": "dibujo",
     "titulo": "Luz de luna",
     "tecnica": "Lápiz de color sobre papel",
@@ -121,7 +121,7 @@
   },
   {
     "id": "dibujo16",
-    "src": "/dibujo/dibujo16.webp",
+    "src": "/uploads/dibujo/dibujo16.webp",
     "categoria": "dibujo",
     "titulo": "Luz de sol",
     "tecnica": "Lápiz de color sobre papel",
@@ -129,7 +129,7 @@
   },
   {
     "id": "dibujo17",
-    "src": "/dibujo/dibujo17.webp",
+    "src": "/uploads/dibujo/dibujo17.webp",
     "categoria": "dibujo",
     "titulo": "Estrella fugaz",
     "tecnica": "Lápiz de color sobre papel",
@@ -137,7 +137,7 @@
   },
   {
     "id": "grabado1",
-    "src": "/grabado/grabado1.webp",
+    "src": "/uploads/grabado/grabado1.webp",
     "categoria": "grabado",
     "titulo": "Nebulosa",
     "tecnica": "Lápiz de color sobre papel",
@@ -145,7 +145,7 @@
   },
   {
     "id": "grabado2",
-    "src": "/grabado/grabado2.webp",
+    "src": "/uploads/grabado/grabado2.webp",
     "categoria": "grabado",
     "titulo": "Galaxia espiral",
     "tecnica": "Lápiz de color sobre papel",
@@ -153,7 +153,7 @@
   },
   {
     "id": "grabado3",
-    "src": "/grabado/grabado3.webp",
+    "src": "/uploads/grabado/grabado3.webp",
     "categoria": "grabado",
     "titulo": "Cúmulo estelar",
     "tecnica": "Lápiz de color sobre papel",
@@ -161,7 +161,7 @@
   },
   {
     "id": "grabado4",
-    "src": "/grabado/grabado4.webp",
+    "src": "/uploads/grabado/grabado4.webp",
     "categoria": "grabado",
     "titulo": "Sin titulo",
     "tecnica": "Lápiz de color sobre papel",
@@ -169,7 +169,7 @@
   },
   {
     "id": "grabado5",
-    "src": "/grabado/grabado5.webp",
+    "src": "/uploads/grabado/grabado5.webp",
     "categoria": "grabado",
     "titulo": "Sin titulo",
     "tecnica": "Lápiz de color sobre papel",
@@ -177,7 +177,7 @@
   },
   {
     "id": "grabado6",
-    "src": "/grabado/grabado6.webp",
+    "src": "/uploads/grabado/grabado6.webp",
     "categoria": "grabado",
     "titulo": "Sin titulo",
     "tecnica": "Lápiz de color sobre papel",
@@ -185,7 +185,7 @@
   },
   {
     "id": "pintura1",
-    "src": "/pintura/pintura1.webp",
+    "src": "/uploads/pintura/pintura1.webp",
     "categoria": "pintura",
     "titulo": "Auroraaaa",
     "tecnica": "Acrílico sobre lienzo",
@@ -193,7 +193,7 @@
   },
   {
     "id": "pintura2",
-    "src": "/pintura/pintura2.webp",
+    "src": "/uploads/pintura/pintura2.webp",
     "categoria": "pintura",
     "titulo": "Aurora Boreal 2",
     "tecnica": "Acrílico sobre lienzo",
@@ -201,7 +201,7 @@
   },
   {
     "id": "1751926842662",
-    "src": "/escultura/1751926842294-761248220.webp",
+    "src": "/uploads/escultura/1751926842294-761248220.webp",
     "categoria": "escultura",
     "titulo": "aaasdas",
     "tecnica": "asdadsasd",
@@ -209,7 +209,7 @@
   },
   {
     "id": "1752362850509",
-    "src": "/escultura/1752362850413-619182232.webp",
+    "src": "/uploads/escultura/1752362850413-619182232.webp",
     "categoria": "escultura",
     "titulo": "Hola pichi",
     "tecnica": "Pichi",
