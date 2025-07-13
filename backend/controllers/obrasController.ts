@@ -4,7 +4,7 @@ const { getJson, saveJson } = require('../utils/fileUtils');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
-const upload = require('../uploads/multerConfig');
+const upload = require('../config/multerConfig');
 
 const FILE = 'obras.json';
 
