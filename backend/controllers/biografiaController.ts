@@ -22,7 +22,8 @@ export const updateBiografia = async (
     const { bio, contact} = req.body
 
     if (typeof bio !== 'string' || typeof contact !== 'string') {
-        return res.status(400).json({error: 'Campos invalidos'})
+        res.status(400).json({error: 'Campos invalidos'})
+        return;
     }
     const updatedData = { bio, contact }
 

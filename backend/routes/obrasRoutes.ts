@@ -8,8 +8,6 @@ const router = express.Router();
 router.get('/', getObras);
 router.put('/:id', updateObra);
 router.delete('/:id', deleteObra);
-
-// Use the new uploadObra function
 router.post('/upload', upload.single('image'), uploadObra);
 
 export default router;

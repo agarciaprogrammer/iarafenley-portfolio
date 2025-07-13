@@ -1,11 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API para portfolio artístico",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
-    "start": "tsc && node dist/server.js"
+    "build": "tsc",   
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,6 @@
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.5",
-    "cost": "^1.2.3",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "morgan": "^1.10.0",

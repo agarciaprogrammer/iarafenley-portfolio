@@ -22,7 +22,10 @@ export const updateObra = async (req: Request, res: Response) => {
     const { id } = req.params;
     const obras = await getJson(FILE);
     const idx = obras.findIndex((o: any) => o.id === id);
-    if (idx === -1) return res.status(404).json({ error: 'Obra no encontrada' });
+    if (idx === -1) {
+      res.status(404).json({ error: 'Obra no encontrada' });
+      return;
+    }
     obras[idx] = { ...obras[idx], ...req.body };
     await saveJson(FILE, obras);
     res.json(obras[idx]);
@@ -36,7 +39,11 @@ export const deleteObra = async (req: Request, res: Response) => {
     const { id } = req.params;
     const obras = await getJson(FILE);
     const nuevasObras = obras.filter((o: any) => o.id !== id);
-    if (nuevasObras.length === obras.length) return res.status(404).json({ error: 'Obra no encontrada' });
+    if (nuevasObras.length === obras.length) {
+      res.status(404).json({ error: 'Obra no encontrada' });
+      return;res.status(404).json({ error: 'Obra no encontrada' });
+    }
+      
     await saveJson(FILE, nuevasObras);
     res.status(204).send();
   } catch (err) {
@@ -51,11 +58,13 @@ export const uploadObra = async (req: Request, res: Response) => {
     const { categoria, titulo, tecnica, anio } = req.body;
 
     if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded.' });
+      res.status(400).json({ error: 'No file uploaded.' });
+      return;
     }
 
     if (!allowedTypes.includes(categoria)) {
-      return res.status(400).json({ error: 'Categoría inválida.' });
+      res.status(400).json({ error: 'Categoría inválida.' });
+      return;
     }
 
     const destination = path.resolve(__dirname, '../../frontend/public', categoria);

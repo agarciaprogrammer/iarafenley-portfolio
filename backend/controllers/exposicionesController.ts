@@ -19,13 +19,15 @@ export const updateExposicion = async (req: Request, res: Response, next: NextFu
     const { text } = req.body
 
     if (typeof text !== 'string') {
-      return res.status(400).json({ error: 'Campo text inválido' })
+      res.status(400).json({ error: 'Campo text inválido' })
+      return;
     }
 
     const data = await getJson(FILE)
     const idx = data.findIndex((expo: any) => expo.id === id)
     if (idx === -1) {
-      return res.status(404).json({ error: 'Exposición no encontrada' })
+      res.status(404).json({ error: 'Exposición no encontrada' })
+      return;
     }
 
     data[idx].text = text
@@ -42,7 +44,8 @@ export const crearExpo = async (req: Request, res: Response) => {
     const { text } = req.body;
 
     if (typeof text !== 'string') {
-      return res.status(400).json({ error: 'Texto de exposición requerido' });
+      res.status(400).json({ error: 'Texto de exposición requerido' });
+      return
     }
 
     const data = await getJson(FILE);
