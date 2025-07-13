@@ -12,10 +12,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const fs = require('fs/promises');
 const path = require('path');
 const getJson = (file) => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield fs.readFile(path.join(__dirname, `../data/${file}`), 'utf-8');
+    const filePath = path.join(process.cwd(), 'data', file);
+    const data = yield fs.readFile(filePath, 'utf-8');
     return JSON.parse(data);
 });
 const saveJson = (file, data) => __awaiter(void 0, void 0, void 0, function* () {
-    yield fs.writeFile(path.join(__dirname, `../data/${file}`), JSON.stringify(data, null, 2));
+    const filePath = path.join(process.cwd(), 'data', file);
+    yield fs.writeFile(filePath, JSON.stringify(data, null, 2));
 });
 module.exports = { getJson, saveJson };
