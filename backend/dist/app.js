@@ -16,6 +16,11 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use((0, morgan_1.default)('dev'));
+app.use((req, res, next) => {
+    console.log(`Request: ${req.method} ${req.url}`);
+    next();
+});
+app.use('/uploads', express_1.default.static(path_1.default.join(__dirname, 'uploads')));
 // Rutas
 app.use('/api/obras', obrasRoutes_1.default);
 app.use('/api/biografia', biografiaRoutes_1.default);
@@ -33,6 +38,7 @@ app.use((err, req, res, next) => {
     console.error('Error inesperado:', err);
     res.status(500).json({ error: 'Error interno del servidor' });
 });
-// Servir imagenes estaticas desde /uploads
-app.use('/uploads', express_1.default.static(path_1.default.join(__dirname, 'uploads')));
+app.use((req, res, next) => {
+    res.status(404).send(`Ruta no encontrada: ${req.method} ${req.originalUrl}`);
+});
 exports.default = app;

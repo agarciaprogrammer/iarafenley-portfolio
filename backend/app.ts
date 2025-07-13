@@ -14,6 +14,13 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
+app.use((req: Request, res: Response, next: NextFunction) => {
+  console.log(`Request: ${req.method} ${req.url}`);
+  next();
+});
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Rutas
 app.use('/api/obras', obrasRoutes)
 app.use('/api/biografia', biografiaRoutes)
@@ -35,7 +42,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: 'Error interno del servidor' })
 })
 
-// Servir imagenes estaticas desde /uploads
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).send(`Ruta no encontrada: ${req.method} ${req.originalUrl}`);
+});
+
 
 export default app
