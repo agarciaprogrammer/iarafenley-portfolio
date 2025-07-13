@@ -22,6 +22,10 @@ const AdminObraEditor = () => {
   });
   const [file, setFile] = useState<File | null>(null);
 
+  // Estado global para mensajes de status
+  const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
   useEffect(() => {
     fetchObras();
   }, []);
@@ -47,14 +51,21 @@ const AdminObraEditor = () => {
   };
 
   const handleSave = async (index: number) => {
+    setStatus('saving');
+    setErrorMsg(null);
     const obra = obras[index];
     try {
       const updated = await updateObra(obra.id, obra);
       const nuevas = [...obras];
       nuevas[index] = updated;
       setObras(nuevas);
+      setStatus('saved');
+      setTimeout(() => setStatus('idle'), 1500);
     } catch (err) {
       console.error('Error al guardar obra:', err);
+      setErrorMsg('Error al guardar obra');
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
@@ -64,8 +75,11 @@ const AdminObraEditor = () => {
       return;
     }
 
+    setStatus('saving');
+    setErrorMsg(null);
+
     const formData = new FormData();
-    formData.append('image', file); // Ensure the file is included
+    formData.append('image', file);
     formData.append('titulo', newObra.titulo || '');
     formData.append('tecnica', newObra.tecnica || '');
     formData.append('anio', newObra.anio?.toString() || '');
@@ -75,7 +89,7 @@ const AdminObraEditor = () => {
       const added = await uploadObra(formData);
       setObras([...obras, added]);
       setNewObra({
-        src: '', // Reset src after upload
+        src: '',
         categoria: 'dibujo',
         titulo: '',
         tecnica: '',
@@ -83,17 +97,29 @@ const AdminObraEditor = () => {
       });
       setFile(null);
       setShowAddForm(false);
+      setStatus('saved');
+      setTimeout(() => setStatus('idle'), 1500);
     } catch (err) {
       console.error('Error al agregar obra:', err);
+      setErrorMsg('Error al agregar obra');
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
   const handleDelete = async (id: string) => {
+    setStatus('saving');
+    setErrorMsg(null);
     try {
       await deleteObra(id);
       setObras(obras.filter((obra) => obra.id !== id));
+      setStatus('saved');
+      setTimeout(() => setStatus('idle'), 1500);
     } catch (err) {
       console.error('Error al eliminar obra:', err);
+      setErrorMsg('Error al eliminar obra');
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
@@ -125,7 +151,13 @@ const AdminObraEditor = () => {
   return (
     <div className="admin-section">
       <h2>Editor de Obras</h2>
+
       <button className='btnAgregarObra' onClick={() => setShowAddForm(true)}>Agregar Obra</button>
+
+      {/* Mensajes de estado global */}
+      {status === 'saving' && <p className="status-msg">Guardando...</p>}
+      {status === 'saved' && <p className="success-msg">✅ Guardado</p>}
+      {status === 'error' && errorMsg && <p className="error-msg">❌ {errorMsg}</p>}
 
       {showAddForm && (
         <div className="add-obra-form">
@@ -197,7 +229,7 @@ const AdminObraEditor = () => {
                 <input
                   value={obra.src}
                   onChange={(e) => handleChange(index, 'src', e.target.value)}
-                  placeholder="Ruta imagen (ej: /dibujo/123.webp)"
+                  placeholder="Ruta imagen (ej: /uploads/dibujo/123.webp)"
                 />
                 <button onClick={() => handleSave(index)}>Guardar</button>
                 <button onClick={() => handleDelete(obra.id)}>Eliminar</button>
