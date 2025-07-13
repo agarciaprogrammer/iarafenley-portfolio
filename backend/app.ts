@@ -36,6 +36,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 })
 
 // Servir imagenes estaticas desde /uploads
-app.use('/uploads', express.static(path.join(__dirname,'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 export default app
