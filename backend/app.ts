@@ -5,6 +5,7 @@ import cors from 'cors'
 import obrasRoutes from './routes/obrasRoutes'
 import biografiaRoutes from './routes/biografiaRoutes'
 import exposicionesRoutes from './routes/expoRoutes'
+import path from 'path'
 
 const app = express()
 
@@ -33,5 +34,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error('Error inesperado:', err)
   res.status(500).json({ error: 'Error interno del servidor' })
 })
+
+// Servir imagenes estaticas desde /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 export default app

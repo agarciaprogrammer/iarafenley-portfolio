@@ -41,7 +41,7 @@ export const deleteObra = async (req: Request, res: Response) => {
     const nuevasObras = obras.filter((o: any) => o.id !== id);
     if (nuevasObras.length === obras.length) {
       res.status(404).json({ error: 'Obra no encontrada' });
-      return;res.status(404).json({ error: 'Obra no encontrada' });
+      return;
     }
       
     await saveJson(FILE, nuevasObras);
@@ -67,7 +67,7 @@ export const uploadObra = async (req: Request, res: Response) => {
       return;
     }
 
-    const destination = path.resolve(__dirname, '../../frontend/public', categoria);
+    const destination = path.resolve(__dirname, '../uploads', categoria)
     if (!fs.existsSync(destination)) {
       fs.mkdirSync(destination, { recursive: true });
     }
@@ -82,7 +82,7 @@ export const uploadObra = async (req: Request, res: Response) => {
 
     const newObra = {
       id: Date.now().toString(),
-      src: `/${categoria}/${uniqueName}`,
+      src: `/uploads/${categoria}/${uniqueName}`,
       categoria,
       titulo,
       tecnica,

@@ -1,7 +1,7 @@
 // backend/routes/obrasRoutes.ts
 import express from 'express';
 import { getObras, updateObra, deleteObra, uploadObra } from '../controllers/obrasController';
-import upload from '../uploads/multerConfig';
+import upload from '../config/multerConfig';
 
 const router = express.Router();
 
