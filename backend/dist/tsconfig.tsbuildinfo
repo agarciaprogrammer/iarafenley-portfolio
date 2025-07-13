@@ -1,0 +1,1 @@
+{"root":["../app.ts","../server.ts","../config/multerConfig.ts","../controllers/biografiaController.ts","../controllers/exposicionesController.ts","../controllers/obrasController.ts","../routes/biografiaRoutes.ts","../routes/expoRoutes.ts","../routes/obrasRoutes.ts","../utils/fileUtils.ts"],"version":"5.8.3"}
