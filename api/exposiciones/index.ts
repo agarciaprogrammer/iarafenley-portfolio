@@ -7,7 +7,11 @@ const FILE = 'exposiciones.json';
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (req.method === 'GET') {
-      // Leer exposiciones.json
+      // ⚡ Evitar cache en GET
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+
       const { data, error } = await supabase.storage.from(BUCKET).download(FILE);
       if (error) throw error;
 
@@ -21,23 +25,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Falta body en la request' });
       }
 
-      // Descargar exposiciones existentes
       const { data, error } = await supabase.storage.from(BUCKET).download(FILE);
       if (error) throw error;
       const text = await data.text();
       const expos = JSON.parse(text);
 
-      // Agregar nueva exposición
       const newExpo = { id: Date.now().toString(), ...req.body };
       expos.push(newExpo);
 
-      // Guardar actualizado
-      const blob = new Blob([JSON.stringify(expos, null, 2)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify(expos, null, 2)], {
+        type: 'application/json',
+      });
       const { error: upErr } = await supabase.storage.from(BUCKET).upload(FILE, blob, {
         upsert: true,
         contentType: 'application/json',
       });
       if (upErr) throw upErr;
+
+      // ⚡ También asegurar no-cache en respuesta
+      res.setHeader('Cache-Control', 'no-store');
 
       return res.status(201).json(newExpo);
     }

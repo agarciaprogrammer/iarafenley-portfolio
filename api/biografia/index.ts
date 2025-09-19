@@ -8,6 +8,11 @@ const FILE = 'biografia.json';
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (req.method === 'GET') {
+      // ⚡️ Evitar cache
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+
       // Descargar el archivo de Supabase Storage
       const { data, error } = await supabase.storage.from(BUCKET).download(FILE);
       if (error) throw error;
@@ -22,7 +27,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Falta body en la request' });
       }
 
-      // Opcional: validar el shape de req.body (ej: biografia + contacto)
       const blob = new Blob([JSON.stringify(req.body, null, 2)], {
         type: 'application/json',
       });
@@ -33,10 +37,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       if (error) throw error;
 
+      // ⚡️ También aseguramos que la respuesta del PUT no se guarde en cache
+      res.setHeader('Cache-Control', 'no-store');
+
       return res.status(204).end(); // actualizado OK
     }
 
-    // Otros métodos no permitidos
     res.setHeader('Allow', 'GET, PUT');
     return res.status(405).json({ error: 'Método no permitido' });
   } catch (err: any) {

@@ -27,12 +27,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
       obras[index] = { ...obras[index], ...req.body };
 
-      const blob = new Blob([JSON.stringify(obras, null, 2)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify(obras, null, 2)], {
+        type: 'application/json',
+      });
       const { error: upErr } = await supabase.storage.from(BUCKET).upload(FILE, blob, {
         upsert: true,
         contentType: 'application/json',
       });
       if (upErr) throw upErr;
+
+      // ⚡ evitar cache en la respuesta
+      res.setHeader('Cache-Control', 'no-store');
 
       return res.status(200).json(obras[index]);
     }
@@ -45,14 +50,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       const deleted = obras.splice(index, 1)[0];
 
-      const blob = new Blob([JSON.stringify(obras, null, 2)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify(obras, null, 2)], {
+        type: 'application/json',
+      });
       const { error: upErr } = await supabase.storage.from(BUCKET).upload(FILE, blob, {
         upsert: true,
         contentType: 'application/json',
       });
       if (upErr) throw upErr;
 
-      // Opcional: borrar la imagen asociada de /uploads si querés
+      // ⚡ evitar cache en la respuesta
+      res.setHeader('Cache-Control', 'no-store');
+
       return res.status(200).json(deleted);
     }
 

@@ -7,6 +7,11 @@ const FILE = 'obras.json';
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (req.method === 'GET') {
+      // ⚡ Evitar cache en GET
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+
       const { data, error } = await supabase.storage.from(BUCKET).download(FILE);
       if (error) throw error;
 

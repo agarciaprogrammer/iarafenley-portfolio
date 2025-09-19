@@ -16,6 +16,7 @@ export const apiFetch = async (
   const res = await fetch(`${API}${endpoint}`, {
     ...options,
     headers,
+    cache: 'no-store',
   })
 
   if (!res.ok) {

@@ -16,8 +16,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(405).json({ error: 'Método no permitido' });
     }
 
-    // Vercel no parsea multipart por defecto: necesitás un parser como `busboy` o `formidable`.
-    // Ejemplo simplificado:
     const busboy = await import('busboy').then(m => m.default);
     const bb = busboy({ headers: req.headers });
 
@@ -53,6 +51,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
       try {
         const publicUrl = await uploadPromise;
+
+        // ⚡ aseguramos que nunca se cachee esta respuesta
+        res.setHeader('Cache-Control', 'no-store');
+
         return res.status(200).json({ publicUrl });
       } catch (err: any) {
         return res.status(500).json({ error: err.message || 'Error al subir imagen' });

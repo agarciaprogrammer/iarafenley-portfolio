@@ -22,20 +22,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Falta body en la request' });
       }
 
-      // Buscar y actualizar
       const index = expos.findIndex((e: any) => e.id === id);
       if (index === -1) {
         return res.status(404).json({ error: 'Exposición no encontrada' });
       }
       expos[index] = { ...expos[index], ...req.body };
 
-      // Guardar actualizado
-      const blob = new Blob([JSON.stringify(expos, null, 2)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify(expos, null, 2)], {
+        type: 'application/json',
+      });
       const { error: upErr } = await supabase.storage.from(BUCKET).upload(FILE, blob, {
         upsert: true,
         contentType: 'application/json',
       });
       if (upErr) throw upErr;
+
+      // ⚡ evitar cache
+      res.setHeader('Cache-Control', 'no-store');
 
       return res.status(200).json(expos[index]);
     }
@@ -46,16 +49,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(404).json({ error: 'Exposición no encontrada' });
       }
 
-      // Eliminar
       const deleted = expos.splice(index, 1)[0];
 
-      // Guardar actualizado
-      const blob = new Blob([JSON.stringify(expos, null, 2)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify(expos, null, 2)], {
+        type: 'application/json',
+      });
       const { error: upErr } = await supabase.storage.from(BUCKET).upload(FILE, blob, {
         upsert: true,
         contentType: 'application/json',
       });
       if (upErr) throw upErr;
+
+      // ⚡ evitar cache
+      res.setHeader('Cache-Control', 'no-store');
 
       return res.status(200).json(deleted);
     }
