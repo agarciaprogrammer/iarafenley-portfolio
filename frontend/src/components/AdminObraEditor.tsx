@@ -51,77 +51,99 @@ const AdminObraEditor = () => {
   };
 
   const handleSave = async (index: number) => {
-    setStatus('saving');
-    setErrorMsg(null);
-    const obra = obras[index];
+    setStatus('saving')
+    setErrorMsg(null)
+  
+    const obra = obras[index]
+  
+    // 🚀 optimista: ya actualizamos localmente
+    const updatedLocal = [...obras]
+    updatedLocal[index] = obra
+    setObras(updatedLocal)
+  
     try {
-      const updated = await updateObra(obra.id, obra);
-      const nuevas = [...obras];
-      nuevas[index] = updated;
-      setObras(nuevas);
-      setStatus('saved');
-      setTimeout(() => setStatus('idle'), 1500);
+      // el servicio ahora devuelve la lista fresca desde el backend
+      const updatedList = await updateObra(obra.id, obra)
+      setObras(updatedList) // sincronizamos con backend
+      setStatus('saved')
+      setTimeout(() => setStatus('idle'), 1500)
     } catch (err) {
-      console.error('Error al guardar obra:', err);
-      setErrorMsg('Error al guardar obra');
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      console.error('Error al guardar obra:', err)
+      setErrorMsg('Error al guardar obra')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
     }
   };
 
   const handleAdd = async () => {
     if (!file) {
-      alert('Por favor, seleccione una imagen.');
-      return;
+      alert('Por favor, seleccione una imagen.')
+      return
     }
-
-    setStatus('saving');
-    setErrorMsg(null);
-
-    const formData = new FormData();
-    formData.append('image', file);
-    formData.append('titulo', newObra.titulo || '');
-    formData.append('tecnica', newObra.tecnica || '');
-    formData.append('anio', newObra.anio?.toString() || '');
-    formData.append('categoria', newObra.categoria);
-
+  
+    setStatus('saving')
+    setErrorMsg(null)
+  
+    // 🚀 Optimista: agregamos la obra localmente
+    const tempObra: Obra = {
+      id: `temp-${Date.now()}`,
+      src: URL.createObjectURL(file), // preview local
+      categoria: newObra.categoria,
+      titulo: newObra.titulo,
+      tecnica: newObra.tecnica,
+      anio: newObra.anio,
+    }
+    setObras([...obras, tempObra])
+  
+    const formData = new FormData()
+    formData.append('image', file)
+    formData.append('titulo', newObra.titulo || '')
+    formData.append('tecnica', newObra.tecnica || '')
+    formData.append('anio', newObra.anio?.toString() || '')
+    formData.append('categoria', newObra.categoria)
+  
     try {
-      const added = await uploadObra(formData);
-      setObras([...obras, added]);
+      const updatedList = await uploadObra(formData) // devuelve lista fresca
+      setObras(updatedList) // sincroniza
       setNewObra({
         src: '',
         categoria: 'dibujo',
         titulo: '',
         tecnica: '',
         anio: new Date().getFullYear(),
-      });
-      setFile(null);
-      setShowAddForm(false);
-      setStatus('saved');
-      setTimeout(() => setStatus('idle'), 1500);
+      })
+      setFile(null)
+      setShowAddForm(false)
+      setStatus('saved')
+      setTimeout(() => setStatus('idle'), 1500)
     } catch (err) {
-      console.error('Error al agregar obra:', err);
-      setErrorMsg('Error al agregar obra');
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      console.error('Error al agregar obra:', err)
+      setErrorMsg('Error al agregar obra')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
     }
   };
 
   const handleDelete = async (id: string) => {
-    setStatus('saving');
-    setErrorMsg(null);
+    setStatus('saving')
+    setErrorMsg(null)
+  
+    // 🚀 Optimista: quitamos la obra localmente
+    const filtered = obras.filter((o) => o.id !== id)
+    setObras(filtered)
+  
     try {
-      await deleteObra(id);
-      setObras(obras.filter((obra) => obra.id !== id));
-      setStatus('saved');
-      setTimeout(() => setStatus('idle'), 1500);
+      const updatedList = await deleteObra(id) // devuelve lista fresca
+      setObras(updatedList)
+      setStatus('saved')
+      setTimeout(() => setStatus('idle'), 1500)
     } catch (err) {
-      console.error('Error al eliminar obra:', err);
-      setErrorMsg('Error al eliminar obra');
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      console.error('Error al eliminar obra:', err)
+      setErrorMsg('Error al eliminar obra')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
     }
-  };
+  }
 
   const handleNewObraChange = (field: keyof Omit<Obra, 'id'>, value: string | number) => {
     setNewObra({

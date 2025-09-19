@@ -33,7 +33,9 @@ const AdminTextEditor = () => {
   const handleSaveBiografia = async () => {
     setStatus('saving')
     try {
-      await updateBiografia({ bio, contact })
+      const freshBio = await updateBiografia({ bio, contact })
+      setBio(freshBio.bio)
+      setContact(freshBio.contact)
       setStatus('saved')
       setTimeout(() => setStatus('idle'), 1500)
     } catch (err) {
@@ -51,9 +53,12 @@ const AdminTextEditor = () => {
   const handleSaveExpo = async (id: string) => {
     setExpoStatus((prev) => ({ ...prev, [id]: 'saving' }))
     try {
+      // 🚀 Optimista: ya actualizamos localmente con handleExpoChange
       const expoToSave = exposiciones.find((expo) => expo.id === id)
       if (!expoToSave) throw new Error('Exposición no encontrada')
-      await updateExposicion({ id, text: expoToSave.text })
+  
+      const updatedList = await updateExposicion({ id, text: expoToSave.text })
+      setExposiciones(updatedList)
       setExpoStatus((prev) => ({ ...prev, [id]: 'saved' }))
       setTimeout(() => setExpoStatus((prev) => ({ ...prev, [id]: 'idle' })), 1500)
     } catch (err) {
@@ -63,13 +68,17 @@ const AdminTextEditor = () => {
   }
 
   const handleCrearExpo = async () => {
+    // 🚀 Optimista: agregamos una expo vacía localmente
+    const tempExpo: Exposicion = { id: `temp-${Date.now()}`, text: '' }
+    setExposiciones([...exposiciones, tempExpo])
+  
     try {
-      const nueva = await crearExpo(''); // Crear exposición vacía
-      setExposiciones((prev) => [...prev, nueva]);
+      const updatedList = await crearExpo('') // backend devuelve lista fresca
+      setExposiciones(updatedList)
     } catch (err) {
-      console.error('Error al crear exposición:', err);
+      console.error('Error al crear exposición:', err)
     }
-  };
+  }
 
 
   return (
