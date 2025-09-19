@@ -1,7 +1,8 @@
 {
-  "dependencies": {
-    "@supabase/supabase-js": "^2.57.4",
-    "@vercel/node": "^5.3.22",
-    "busboy": "^1.6.0"
+    "private": true,
+    "workspaces": [
+      "frontend",
+      "api"
+    ]
   }
-}
+  
