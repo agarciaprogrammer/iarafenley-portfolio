@@ -6,11 +6,8 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Etapa de producción
-FROM node:20-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-COPY --from=builder /app ./
-
-EXPOSE 3000
-CMD ["npm", "start"]
+# Etapa de servidor estático (Nginx)
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
