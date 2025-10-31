@@ -1,0 +1,30 @@
+name: CI/CD Homelab
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Tu runner local
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USER }}/iarafenley:latest .
+          docker push ${{ secrets.DOCKER_USER }}/iarafenley:latest
+
+      - name: Deploy to Homelab Kubernetes
+        run: |
+          echo "Deploying to Kind cluster..."
+          kubectl delete deployment iarafenley --ignore-not-found
+          kubectl apply -f k8s/deployment.yaml
+          kubectl rollout status deployment iarafenley
