@@ -19,9 +19,11 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build and push Docker image
+        working-directory: ./frontend
         run: |
-          docker build -t ${{ secrets.DOCKER_USER }}/iarafenley:latest -f frontend/Dockerfile ./frontend
+          docker build -t ${{ secrets.DOCKER_USER }}/iarafenley:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_USER }}/iarafenley:latest
+
 
       - name: Deploy to Homelab
         working-directory: ./frontend
